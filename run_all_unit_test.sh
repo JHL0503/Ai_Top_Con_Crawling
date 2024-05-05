@@ -5,11 +5,14 @@
 # 이 변수를 설정하면 모든 unit test의 로그가 .log 파일 하나에 기록됩니다.
 # 이 변수를 설정하지 않으면, 모든 unit test의 로그는 각 unit test가 위치하는
 # dir 속 log dir에 각각 기록됩니다.
-#export LOG_LOCATION="/home/jjtopology/GenerativeAI/Ai_Top_Con_Crawling"
+export LOG_LOCATION=""
+#export LOG_LOCATION="/home/jjtopology/GenerativeAI/Ai_Top_Con_Crawling/ut_log"
 
 export LOG_LEVEL="DEBUG"
 
 
+# 이걸 안해주면 'from src' 부분을 못잡더라.
+export PYTHONPATH="$PWD:$PYTHONPATH"
 
 
 ################################################
