@@ -1,5 +1,11 @@
 import logging, os
-def Set_Ut_Logger(location, level, fileName):
+
+def get_local_dir_path(fileName):
+    local_log_path = os.path.dirname(fileName) + "/log"
+    local_data_path = os.path.dirname(fileName) + "/data"
+    return local_log_path, local_data_path
+
+def Set_Ut_Logger(location, level, fileName, mode='a'):
     if location == "":
         location = os.path.dirname(fileName) + "/log/" + os.path.basename(fileName).split(".")[0] + ".log"
 
@@ -15,7 +21,7 @@ def Set_Ut_Logger(location, level, fileName):
     logger.setLevel(log_level_dict[level])  # 모든 레벨의 로그를 캡처하도록 설정
 
     # 파일 핸들러 생성 및 로그 레벨 설정
-    file_handler = logging.FileHandler(location)
+    file_handler = logging.FileHandler(location, mode=mode)
     file_handler.setLevel(log_level_dict[level])  # ERROR 및 그 이상의 로그만 파일로 기록
 
     # # 콘솔 핸들러 생성 및 로그 레벨 설정
